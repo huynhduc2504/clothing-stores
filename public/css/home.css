@@ -76,8 +76,12 @@
 }
 .new-product-item{
   cursor: pointer;
+  color: black;
 }
 .new-product-item:hover .add-cart-container{
   visibility: inherit;
   bottom: 14px;
+}
+.href-detail{
+  text-decoration: none;
 }

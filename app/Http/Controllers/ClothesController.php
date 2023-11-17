@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
 
 class ClothesController extends Controller
 {
@@ -12,8 +13,10 @@ class ClothesController extends Controller
     public function index()
     {
         //
+        $data = Products::all();
+        // return response()->json($data);
+        return view('home.home',['data'=>$data]);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -35,7 +38,8 @@ class ClothesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Products::find($id);
+        return view('home.detail',['data'=>$data]);
     }
 
     /**

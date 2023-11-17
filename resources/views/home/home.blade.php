@@ -56,20 +56,22 @@
       <div class="new-product-group">
           <h2>Sản phẩm mới</h2>
           <div class="new-product-container">
-            @for($i = 0; $i < 8; $i++)
+            @foreach($data as $item)
+            <a href="/detail/{{$item->Id}}" class="href-detail">
               <div class="new-product-item">
                   <div class="img-product-container">
-                    <img src="https://canifa.com/img/1000/1500/resize/6/t/6te23w013-se396-1-thumb.webp" alt="">
+                    <img src="{{$item->ImageURL}}" alt="">
                     <div class="add-cart-container">
                       <span>Thêm vào giỏ hàng</span>
                   </div>
                   </div>
                   <div class="content-product-container">
-                    <p>Áo len nữ cổ tròn tay lửng</p>
-                    <p class="content-product-price">299.000 đ</p>
+                    <p>{{$item->Name}}</p>
+                    <p class="content-product-price">{{$item->Price}}$</p>
                   </div>
               </div>
-            @endfor
+              </a>
+            @endforeach
           </div>
       </div>
     </div>
