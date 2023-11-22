@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClothesController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use App\Http\Controllers\ClothesController;
 
 Route::get('/', [ClothesController::class,'index']);
 Route::get('/detail/{id}',[ClothesController::class,'show']);
+Route::get('/login',[LoginController::class,'index']);
 // Route::get('/test',[ClothesController::class,'index']);
