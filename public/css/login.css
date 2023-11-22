@@ -1,0 +1,99 @@
+.modal-login {
+    background-color: white;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+}
+.modal_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.modal_content > h1 {
+    font-size: 50px;
+}
+.product-breadcrumb{
+    height: 81px;
+    background-color: #212529;
+    padding: 0px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-breadcrumb > h2{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+}
+.product-breadcrumb > a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    text-decoration: none;
+}
+.modal_content > h2 {
+    font-weight: 400;
+}
+.modal_content > span {
+    font-size: 12px;
+    font-weight: 300;
+}
+.login_box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.login_box > span {
+    font-size: 17px;
+}
+.login_button {
+    color: #fff;
+    padding: 15px 30px;
+    background-color: #212529;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.login_user,
+.login_password {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: center;
+    
+}
+.login_user > span,
+.login_password > span {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.login_user > input,
+.login_password > input {
+    font-size: 20px;
+    width: 600px;
+    padding: 10px 40px 10px 0px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.login_user > input:focus,
+.login_password > input:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+.login_user > input::placeholder,
+.login_password > input::placeholder {
+    font-size: 20px;
+}
