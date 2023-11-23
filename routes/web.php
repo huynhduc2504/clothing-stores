@@ -18,4 +18,8 @@ use App\Http\Controllers\LoginController;
 Route::get('/', [ClothesController::class,'index']);
 Route::get('/detail/{id}',[ClothesController::class,'show']);
 Route::get('/login',[LoginController::class,'index']);
-// Route::get('/test',[ClothesController::class,'index']);
+Route::get('/register',[LoginController::class,'register_view']);
+Route::post('/login',[LoginController::class,'login']);
+Route::post('/register',[LoginController::class,'register']);
+
+Route::get('/logout',[LoginController::class,'logout']);

@@ -12,8 +12,9 @@ class ClothesController extends Controller
      */
     public function index()
     {
-        //
+        //Lay tat ca du lieu trong bang Product
         $data = Products::all();
+
         // return response()->json($data);
         return view('home.home',['data'=>$data]);
     }

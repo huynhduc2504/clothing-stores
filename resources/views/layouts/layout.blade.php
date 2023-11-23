@@ -19,9 +19,9 @@
           <h2>Clothing Stores</h2>
         </div>
         <div class="header-list">
-          <p>Trang chủ</p>
-          <p>Sản phẩm</p>
-          <p>Cửa hàng</p>
+          <a href="/">Trang chủ</a>
+          <a href="">Sản phẩm</a>
+          <a href="">Cửa hàng</a>
         </div>
         <div class="search-btn-group">
             <i class="fa-solid fa-magnifying-glass search-btn"></i>
@@ -29,8 +29,15 @@
         </div>
         <div class="header-user">
             <div class="user-group">
-                <i class="fa-regular fa-user header-user-icon"></i>
+                @if(session()->has('user'))
+                <div class="login-box">
+                <p>{{session()->get('user')['name']}}</p>
+                    <a href="/logout">Đăng xuất</a>
+                </div>
+                @else
+                <a href="/login"><i class="fa-regular fa-user header-user-icon"></i></a>
                 <p>Tài khoản</p>
+                @endif
             </div>
             <div class="user-group">
                 <i class="fa-solid fa-cart-shopping header-user-icon"></i>

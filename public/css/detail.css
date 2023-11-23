@@ -12,15 +12,15 @@ h6 {
 }
 
 .product-info {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    justify-content: space-between;
     padding: 70px 68px;
-    gap: 24px;
 }
 .product-left {
     display: grid;
     grid-template-columns: auto auto;
     gap: 24px;
+    margin-right: 10px;
 }
 .product-left > img{
     width: 400px;
