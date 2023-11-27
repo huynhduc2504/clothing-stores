@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/layout.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,8 +42,7 @@
             </div>
             <div class="user-group">
                 <i class="fa-solid fa-cart-shopping header-user-icon"></i>
-                <p>Giỏ hàng</p>
-
+                <p>Giỏ hàng {{ Cart::getTotalQuantity()}}</p>
             </div>
         </div>
       </div>
@@ -116,5 +116,6 @@
         </div>
         </div>
 </div>
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

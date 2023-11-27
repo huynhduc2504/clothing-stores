@@ -62,8 +62,16 @@
                   <div class="img-product-container">
                     <img src="{{$item->ImageURL}}" alt="">
                     <div class="add-cart-container">
-                      <span>Thêm vào giỏ hàng</span>
-                  </div>
+                      <form action="{{ route('cart.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $item->Id }}" name="id">
+                        <input type="hidden" value="{{ $item->Name }}" name="name">
+                        <input type="hidden" value="{{ $item->Price }}" name="price">
+                        <input type="hidden" value="{{ $item->ImageURL }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button>Thêm vào giỏ hàng</button>
+                      </form>
+                    </div>
                   </div>
                   <div class="content-product-container">
                     <p>{{$item->Name}}</p>
