@@ -27,7 +27,7 @@ class LoginController extends Controller
         if(!$u->isEmpty()){
         if(Hash::check($r->Password,$u[0]->Password))
         {
-            session(['user'=>'1','user'=>['email'=>$u[0]->Email,'name'=>$u[0]->Username]]);
+            session(['user'=>'1','user'=>['id'=>$u[0]->Id,'email'=>$u[0]->Email,'name'=>$u[0]->Username]]);
             session()->flash('success','Đăng nhập thành công');
             return redirect('/');
         }else

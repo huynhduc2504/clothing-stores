@@ -37,4 +37,5 @@ Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear
 
 //Checkout
 Route::get('/checkout', [checkoutController::class, 'checkout_view'])->name('checkout.view');
+Route::get('/order/create',[checkoutController::class,'order']);
 

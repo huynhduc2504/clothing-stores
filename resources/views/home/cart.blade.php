@@ -62,21 +62,73 @@
                     Tổng tiền giỏ hàng: ${{ Cart::getTotal() }}
                 </div>
                 <div class="flex">
-                <div class="m-5">
-                    <form action="{{ route('cart.clear') }}" method="POST">
-                        @csrf
-                        <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Xóa giỏ hàng</button>
-                    </form>
-                </div>
-                <div class="m-5">
-                  <a href="{{ route('checkout.view') }}">
-                    <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Đặt hàng</button>
-                  </a>
-                </div>
+                    <div class="m-5">
+                        <form action="{{ route('cart.clear') }}" method="POST">
+                            @csrf
+                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Xóa giỏ
+                                hàng</button>
+                        </form>
+                    </div>
+                    <div class="m-5">
+                        <a href="{{ route('checkout.view') }}">
+                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Đặt hàng</button>
+                        </a>
+                    </div>
 
                 </div>
             </div>
         </div>
+
+    </div>
+</div>
+<div class="container px-6 mx-auto">
+    <div class="flex justify-center my-6">
+        <!-- <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+            <h3 class="text-3xl font-bold">Thông tin đặt hàng</h3>
+            <form action="/order/create" class="flex justify-around w-full flex-wrap items-center flex-col">
+                <div class="flex w-4/5 justify-between">
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label">
+                            <span class="label-text">Họ tên</span>
+                        </div>
+                        <input type="text" placeholder="Type here" name="name"
+                            class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label">
+                            <span class="label-text">Địa chỉ</span>
+                        </div>
+                        <input type="text" placeholder="Type here" name="address"
+                            class="input input-bordered w-full max-w-xs" />
+                    </label>
+                </div>
+                <div class="flex w-4/5 justify-between">
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label">
+                            <span class="label-text">Số điện thoại</span>
+                        </div>
+                        <input type="text" placeholder="Type here" name="sdt"
+                            class="input input-bordered w-full max-w-xs" />
+                    </label>
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label">
+                            <span class="label-text">Ghi chú</span>
+                        </div>
+                        <input type="text" placeholder="Type here" name="note"
+                            class="input input-bordered w-full max-w-xs" />
+                    </label>
+                </div>
+                <input type="hidden" value="{{ Cart::getTotal() }}" name="TotalAmount">
+                <input type="hidden" value="{{session()->get('user')['id']}}" name="IdCustomer">
+                <input type="hidden" value="" name="OrderDate">
+                 @foreach ($cartItems as $index => $item)
+                <input type="hidden" value="{{ $item->price }}" name="Price_{{ $index }}">
+                <input type="hidden" value="{{ $item->quantity }}" name="Quantity_{{ $index }}">
+                @endforeach -->
+                <!-- <input type="hidden" value="{{$cartItems}}" name="cartItems">
+                <button class="btn my-8" type="submit">Đặt hàng</button>
+            </form>
+        </div> --> 
     </div>
 </div>
 
