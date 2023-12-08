@@ -3,37 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Products;
 
-class ClothesController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //Lay tat ca du lieu trong bang Product
-        $data = Products::all();
-
-        // return response()->json($data);
-        return view('home.home',['data'=>$data]);
+        // return admin()->json($data);
+        return view('admin.dashboard');
     }
-    public function admin()
-    {
-        //Lay tat ca du lieu trong bang Product
-        $data = Products::all();
 
-        // return response()->json($data);
-        return view('admin.product',['data'=>$data]);
-        return Datatables::of(Post::query()->with('comments', 'user'))
-       ->addColumn('user_name', function($row){
-           return $row->user->name;
-       })
-       ->addColumn('comments_num', function($row){
-           return $row->comments->count();
-       })
-       ->make(true);
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -55,8 +36,7 @@ class ClothesController extends Controller
      */
     public function show(string $id)
     {
-        $data = Products::find($id);
-        return view('home.detail',['data'=>$data]);
+        //
     }
 
     /**

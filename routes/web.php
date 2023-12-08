@@ -5,7 +5,7 @@ use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\checkoutController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +38,9 @@ Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear
 //Checkout
 Route::get('/checkout', [checkoutController::class, 'checkout_view'])->name('checkout.view');
 Route::get('/order/create',[checkoutController::class,'order']);
+
+
+//Admin
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/product', [ClothesController::class, 'admin']);
 
