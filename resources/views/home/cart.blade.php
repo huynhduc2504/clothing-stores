@@ -9,7 +9,7 @@
                 <p class="text-green-800">{{ $message }}</p>
             </div>
             @endif
-            <h3 class="text-3xl font-bold">Giỏ hàng</h3>
+            <h3 class="text-2xl font-bold">Giỏ hàng</h3>
             <div class="flex-1">
                 <div class="overflow-x-auto">
                     <table class="table">
