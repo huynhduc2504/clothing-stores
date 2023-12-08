@@ -41,8 +41,10 @@
                 @endif
             </div>
             <div class="user-group">
+                <a href="/cart">
                 <i class="fa-solid fa-cart-shopping header-user-icon"></i>
                 <p>Giỏ hàng {{ Cart::getTotalQuantity()}}</p>
+                </a>
             </div>
         </div>
       </div>

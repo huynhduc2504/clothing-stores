@@ -34,7 +34,7 @@
                         <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     </label>
                 </div>
-                <button class="btn my-8" type="submit">Ghi chú</button>
+                <button class="btn my-8" type="submit">Ghi chú:</button>
             </form>
         </div>
     </div>
