@@ -42,5 +42,12 @@ Route::get('/order/create',[checkoutController::class,'order']);
 
 //Admin
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/admin/product', [ClothesController::class, 'admin']);
-
+Route::get('/admin/product', [AdminController::class, 'products_list']);
+Route::get('/admin/customer', [AdminController::class, 'customers_list']);
+Route::get('/admin/product/add', function () {
+    return view('admin.add-product');
+});
+Route::post('/admin/product/add', [ClothesController::class, 'store']);
+Route::get('/admin/customer/add', function () {
+    return view('admin.add-customer');
+});

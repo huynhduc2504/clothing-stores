@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 
+
 class ClothesController extends Controller
 {
     /**
@@ -18,22 +19,7 @@ class ClothesController extends Controller
         // return response()->json($data);
         return view('home.home',['data'=>$data]);
     }
-    public function admin()
-    {
-        //Lay tat ca du lieu trong bang Product
-        $data = Products::all();
 
-        // return response()->json($data);
-        return view('admin.product',['data'=>$data]);
-        return Datatables::of(Post::query()->with('comments', 'user'))
-       ->addColumn('user_name', function($row){
-           return $row->user->name;
-       })
-       ->addColumn('comments_num', function($row){
-           return $row->comments->count();
-       })
-       ->make(true);
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -48,6 +34,12 @@ class ClothesController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->all();
+        // $tenanh=$request->anhsp->getClientOriginalName();
+        // $request->anhsp->storeAs('public',$tenanh);
+        // $data['anhsp']=$tenanh;
+        Products::create($data);
+        return redirect('/admin/product');
     }
 
     /**

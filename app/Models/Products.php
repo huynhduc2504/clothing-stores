@@ -11,6 +11,7 @@ class Products extends Model
     protected $table = 'clothes';
     protected $primaryKey = 'Id';
     public $incrementing = true;
+    public $timestamps = true; 
 
     protected $fillable = [
         'Id',

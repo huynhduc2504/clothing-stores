@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
+use App\Models\Customers;
 
 class AdminController extends Controller
 {
@@ -14,7 +16,22 @@ class AdminController extends Controller
         // return admin()->json($data);
         return view('admin.dashboard');
     }
+    public function products_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Products::all();
 
+        // return response()->json($data);
+        return view('admin.product',['data'=>$data]);
+    }
+    public function customers_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Customers::all();
+
+        // return response()->json($data);
+        return view('admin.customer',['data'=>$data]);
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -17,11 +17,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -64,10 +64,11 @@
                                         </li>
                                         <li>
                                             <details open>
-                                                <summary>Khách hàng</summary>
+                                                <summary><a href="/admin/customer">Khách hàng</a></summary>
                                                 <ul>
                                                     <li><a href="/admin/customer/add">Thêm khách hàng</a></li>
-                                                    <li><a href="/admin/customer/update">Sửa thông tin khách hàng</a></li>
+                                                    <li><a href="/admin/customer/update">Sửa thông tin khách hàng</a>
+                                                    </li>
                                                 </ul>
                                             </details>
                                         </li>
