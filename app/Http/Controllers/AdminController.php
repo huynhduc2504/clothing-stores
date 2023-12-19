@@ -4,22 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\Customers;
 
-
-class ClothesController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        // return admin()->json($data);
+        return view('admin.dashboard');
+    }
+    public function products_list()
+    {
         //Lay tat ca du lieu trong bang Product
         $data = Products::all();
 
         // return response()->json($data);
-        return view('home.home',['data'=>$data]);
+        return view('admin.product',['data'=>$data]);
     }
+    public function customers_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Customers::all();
 
+        // return response()->json($data);
+        return view('admin.customer',['data'=>$data]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -34,12 +46,6 @@ class ClothesController extends Controller
     public function store(Request $request)
     {
         //
-        $data= $request->all();
-        // $tenanh=$request->anhsp->getClientOriginalName();
-        // $request->anhsp->storeAs('public',$tenanh);
-        // $data['anhsp']=$tenanh;
-        Products::create($data);
-        return redirect('/admin/product');
     }
 
     /**
@@ -47,8 +53,7 @@ class ClothesController extends Controller
      */
     public function show(string $id)
     {
-        $data = Products::find($id);
-        return view('home.detail',['data'=>$data]);
+        //
     }
 
     /**

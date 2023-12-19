@@ -1,0 +1,7 @@
+.container-f{
+    display: flex;
+}
+.container-s{
+    width: 100%;
+    padding-left: 240px;
+}

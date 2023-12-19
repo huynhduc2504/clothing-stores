@@ -7,7 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\PaymentMomo;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,10 +46,14 @@ Route::get('/order/create',[checkoutController::class,'order']);
 Route::post('/momo', [PaymentMomo::class, 'paymentMomo'])->name('cart.momo');
 Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.success');
 
-
-//Profile
-Route::get('/profile', [ProfileController::class, 'view'])->name('profile.view');
-Route::post('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
-
-
-
+//Admin
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/product', [AdminController::class, 'products_list']);
+Route::get('/admin/customer', [AdminController::class, 'customers_list']);
+Route::get('/admin/product/add', function () {
+    return view('admin.add-product');
+});
+Route::post('/admin/product/add', [ClothesController::class, 'store']);
+Route::get('/admin/customer/add', function () {
+    return view('admin.add-customer');
+});

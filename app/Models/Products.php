@@ -11,6 +11,7 @@ class Products extends Model
     protected $table = 'clothes';
     protected $primaryKey = 'Id';
     public $incrementing = true;
+    public $timestamps = true; 
 
     protected $fillable = [
         'Id',
@@ -21,5 +22,7 @@ class Products extends Model
         'IdSize',
         'IdColor',
         'IdCategories',
+        'updated_at',
+        'created_at',
     ];
 }
