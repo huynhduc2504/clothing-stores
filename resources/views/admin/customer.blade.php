@@ -19,6 +19,7 @@
                     <th>Email</th>
                     <th>Địa chỉ</th>
                     <th>Số điện thoại</th>
+                    <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,17 @@
                     <td>{{ $customer->Email }}</td>
                     <td>{{ $customer->Address }}</td>
                     <td>{{ $customer->Phone }}</td>
+                    <td>
+                        <form action="/admin/customer/delete/{{ $customer->Id }}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-error">Xóa</button>
+                        </form>
+                        <form action="/admin/customer/edit/{{ $customer->Id }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">Sửa</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

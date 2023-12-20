@@ -58,7 +58,6 @@
                                                 <summary><a href="/admin/product">Sản phẩm</a></summary>
                                                 <ul>
                                                     <li><a href="/admin/product/add">Thêm sản phẩm</a></li>
-                                                    <li><a href="/admin/product/update">Sửa thông tin sản phẩm</a></li>
                                                 </ul>
                                             </details>
                                         </li>
@@ -66,12 +65,38 @@
                                             <details open>
                                                 <summary><a href="/admin/customer">Khách hàng</a></summary>
                                                 <ul>
-                                                    <li><a href="/admin/customer/add">Thêm khách hàng</a></li>
-                                                    <li><a href="/admin/customer/update">Sửa thông tin khách hàng</a>
+                                                    
+                                                </ul>
+                                            </details>
+                                        </li>
+                                        <li>
+                                            <details open>
+                                                <summary><a href="/admin/catelogies">Danh mục</a></summary>
+                                                <ul>
+                                                    <li><a href="/admin/catelogies/add">Thêm danh mục</a></li>
                                                     </li>
                                                 </ul>
                                             </details>
                                         </li>
+                                        <li>
+                                            <details open>
+                                                <summary><a href="/admin/color">Màu sắc</a></summary>
+                                                <ul>
+                                                    <li><a href="/admin/color/add">Thêm màu sắc</a></li>
+                                                    </li>
+                                                </ul>
+                                            </details>
+                                        </li>
+                                        <li>
+                                            <details open>
+                                                <summary><a href="/admin/size">Kích thước</a></summary>
+                                                <ul>
+                                                    <li><a href="/admin/size/add">Thêm kích thước</a></li>
+                                                    </li>
+                                                </ul>
+                                            </details>
+                                        </li>
+
                                     </ul>
                                 </details>
                             </li>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\Size;
+use App\Models\Color;
+use App\Models\Catelogries;
 
 
 class ClothesController extends Controller
@@ -57,7 +60,17 @@ class ClothesController extends Controller
     public function edit(string $id)
     {
         //
-    }
+        $data= Products::find($id);
+        $data1= Size::all();
+        $data2= Color::all();
+        $data3= Catelogries::all();
+        return view('admin.update-product', [
+            'data' => $data,
+            'Size' => $data1,
+            'Color' => $data2,
+            'Cate' => $data3
+        ]);
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -65,6 +78,16 @@ class ClothesController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $temp= Products::find($id);
+        $temp->Name= $request->Name;
+        $temp->Price= $request->Price;
+        $temp->ImageURL= $request->ImageURL;
+        $temp->IdSize= $request->IdSize;
+        $temp->IdColor= $request->IdColor;
+        $temp->IdCategories= $request->IdCategories;
+        $temp->Description= $request->Description;
+        $temp->save();
+        return redirect('/admin/product');
     }
 
     /**
@@ -73,5 +96,7 @@ class ClothesController extends Controller
     public function destroy(string $id)
     {
         //
+        Products::destroy($id);
+        return redirect('/admin/product');
     }
 }

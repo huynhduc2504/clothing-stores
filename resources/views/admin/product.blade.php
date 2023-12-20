@@ -17,7 +17,9 @@
                     <th>Mã sản phẩm</th>
                     <th>Ảnh sản phẩm</th>
                     <th>Tên sản phẩm</th>
+                    <th>Giá sản phẩm</th>
                     <th>Mô tả sản phẩm</th>
+                    <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +27,23 @@
                 <!-- Thêm các thẻ HTML khác hoặc thao tác với dữ liệu khác -->
                 <tr>
                     <td>{{ $product->Id }}</td>
-                    <td><image width="100px" src="{{ $product->ImageURL }}"></image></td>
+                    <td>
+                        <image width="100px" src="{{ $product->ImageURL }}"></image>
+                    </td>
                     <td>{{ $product->Name }}</td>
+                    <td>{{ $product->Price }}</td>  
                     <td>{{ $product->Description }}</td>
+                    <td>
+                        <form action="/admin/product/delete/{{ $product->Id }}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-error">Xóa</button>
+                        </form>
+                        <form action="/admin/product/edit/{{ $product->Id }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">Sửa</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
