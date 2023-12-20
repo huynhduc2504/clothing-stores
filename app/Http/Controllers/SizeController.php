@@ -29,6 +29,9 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->all();
+        Size::create($data);
+        return redirect('/admin/size');
     }
 
     /**
@@ -42,24 +45,34 @@ class SizeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Size $size)
+    public function edit(string $id)
     {
         //
+        $data= Size::find($id);
+        return view('admin.update-size', [
+            'data' => $data,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Size $size)
+    public function update(Request $request, string $id)
     {
         //
+        $temp = Size::find($id);
+        $temp->Name = $request->Name;
+        $temp->save();
+        return redirect('/admin/size');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Size $size)
+    public function destroy(string $id)
     {
         //
+        Size::destroy($id);
+        return redirect('/admin/size');
     }
 }

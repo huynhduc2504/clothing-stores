@@ -9,6 +9,10 @@ use App\Http\Controllers\PaymentMomo;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\CatelogriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +55,7 @@ Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.su
 //Admin
 Route::get('/admin', [AdminController::class, 'index']);
 
+//Product
 Route::get('/admin/product', [AdminController::class, 'products_list']);
 Route::get('/admin/product/add', function () {
     return view('admin.add-product');
@@ -60,10 +65,39 @@ Route::get('/admin/product/edit/{id}', [ClothesController::class, 'edit']);
 Route::put('/admin/product/update/{id}', [ClothesController::class, 'update']);
 Route::delete('/admin/product/delete/{id}', [ClothesController::class, 'destroy']);
 
+//Customer
 Route::get('/admin/customer', [AdminController::class, 'customers_list']);
-Route::get('/admin/customer/add', function () {
-    return view('admin.add-customer');
-});
 Route::get('/admin/customer/edit/{id}', [CustomersController::class, 'edit']);
 Route::put('/admin/customer/update/{id}', [CustomersController::class, 'update']);
 Route::delete('/admin/customer/delete/{id}', [CustomersController::class, 'destroy']);
+
+//Size
+Route::get('/admin/size', [AdminController::class, 'sizes_list']);
+Route::get('/admin/size/add', function () {
+    return view('admin.add-size');
+});
+Route::post('/admin/size/add', [SizeController::class, 'store']);
+Route::get('/admin/size/edit/{id}', [SizeController::class, 'edit']);
+Route::put('/admin/size/update/{id}', [SizeController::class, 'update']);
+Route::delete('/admin/size/delete/{id}', [SizeController::class, 'destroy']);
+
+//Color
+Route::get('/admin/color', [AdminController::class, 'colors_list']);
+Route::get('/admin/color/add', function () {
+    return view('admin.add-color');
+});
+Route::post('/admin/color/add', [ColorController::class, 'store']);
+Route::get('/admin/color/edit/{id}', [ColorController::class, 'edit']);
+Route::put('/admin/color/update/{id}', [ColorController::class, 'update']);
+Route::delete('/admin/color/delete/{id}', [ColorController::class, 'destroy']);
+
+//Category
+Route::get('/admin/category', [AdminController::class, 'catelogries_list']);
+Route::get('/admin/category/add', function () {
+    return view('admin.add-category');
+});
+Route::post('/admin/category/add', [CatelogriesController::class, 'store']);
+Route::get('/admin/category/edit/{id}', [CatelogriesController::class, 'edit']);
+Route::put('/admin/category/update/{id}', [CatelogriesController::class, 'update']);
+Route::delete('/admin/category/delete/{id}', [CatelogriesController::class, 'destroy']);
+

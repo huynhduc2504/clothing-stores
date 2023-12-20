@@ -29,6 +29,9 @@ class CatelogriesController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->all();
+        Catelogries::create($data);
+        return redirect('/admin/category');
     }
 
     /**
@@ -42,24 +45,34 @@ class CatelogriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Catelogries $catelogries)
+    public function edit(string $id)
     {
         //
+        $data= Catelogries::find($id);
+        return view('admin.update-categories', [
+            'data' => $data,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Catelogries $catelogries)
+    public function update(Request $request, string $id)
     {
         //
+        $temp = Catelogries::find($id);
+        $temp->CategoryName = $request->CategoryName;
+        $temp->save();
+        return redirect('/admin/category');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Catelogries $catelogries)
+    public function destroy(string $id)
     {
         //
+        Catelogries::destroy($id);
+        return redirect('/admin/category');
     }
 }

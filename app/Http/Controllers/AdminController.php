@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Customers;
+use App\Models\Size;
+use App\Models\Color;
+use App\Models\Catelogries;
+
 
 class AdminController extends Controller
 {
@@ -31,6 +35,30 @@ class AdminController extends Controller
 
         // return response()->json($data);
         return view('admin.customer',['data'=>$data]);
+    }
+    public function sizes_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Size::all();
+
+        // return response()->json($data);
+        return view('admin.size',['data'=>$data]);
+    }
+    public function colors_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Color::all();
+
+        // return response()->json($data);
+        return view('admin.color',['data'=>$data]);
+    }
+    public function catelogries_list()
+    {
+        //Lay tat ca du lieu trong bang Product
+        $data = Catelogries::all();
+
+        // return response()->json($data);
+        return view('admin.category',['data'=>$data]);
     }
     /**
      * Show the form for creating a new resource.

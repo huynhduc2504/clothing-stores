@@ -29,6 +29,9 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->all();
+        Color::create($data);
+        return redirect('/admin/color');
     }
 
     /**
@@ -42,24 +45,34 @@ class ColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Color $color)
+    public function edit(string $id)
     {
         //
+        $data= Color::find($id);
+        return view('admin.update-color', [
+            'data' => $data,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Color $color)
+    public function update(Request $request, string $id)
     {
         //
+        $temp = Color::find($id);
+        $temp->Name = $request->Name;
+        $temp->save();
+        return redirect('/admin/color');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Color $color)
+    public function destroy(string $id)
     {
         //
+        Color::destroy($id);
+        return redirect('/admin/color');
     }
 }

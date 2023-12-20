@@ -71,9 +71,9 @@
                                         </li>
                                         <li>
                                             <details open>
-                                                <summary><a href="/admin/catelogies">Danh mục</a></summary>
+                                                <summary><a href="/admin/category">Danh mục</a></summary>
                                                 <ul>
-                                                    <li><a href="/admin/catelogies/add">Thêm danh mục</a></li>
+                                                    <li><a href="/admin/category/add">Thêm danh mục</a></li>
                                                     </li>
                                                 </ul>
                                             </details>
