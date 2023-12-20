@@ -13,7 +13,9 @@ class Catelogries extends Model
     public $incrementing = true;
 
     protected $fillable = [
-        'Id',
-        'Name'
+        'CategoryID ',
+        'CategoryName',
+        'updated_at',
+        'created_at',
     ];
 }

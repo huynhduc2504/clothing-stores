@@ -11,7 +11,7 @@
         </ul>
     </div>
     <h2 class="title">Thêm danh mục</h2>
-    <form class="form" action="/admin/color/add" method="post" enctype="multipart/form-data">
+    <form class="form" action="/admin/category/add" method="post" enctype="multipart/form-data">
         @csrf
         <label class="form-control w-full">
             <div class="label w-full">

@@ -14,6 +14,8 @@ class Size extends Model
 
     protected $fillable = [
         'Id',
-        'Name'
+        'Name',
+        'updated_at',
+        'created_at',
     ];
 }

@@ -52,6 +52,10 @@ Route::get('/order/create',[checkoutController::class,'order']);
 Route::post('/momo', [PaymentMomo::class, 'paymentMomo'])->name('cart.momo');
 Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.success');
 
+//Profile
+Route::get('/profile', [ProfileController::class, 'view'])->name('profile.view');
+Route::post('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
+
 //Admin
 Route::get('/admin', [AdminController::class, 'index']);
 
@@ -100,4 +104,6 @@ Route::post('/admin/category/add', [CatelogriesController::class, 'store']);
 Route::get('/admin/category/edit/{id}', [CatelogriesController::class, 'edit']);
 Route::put('/admin/category/update/{id}', [CatelogriesController::class, 'update']);
 Route::delete('/admin/category/delete/{id}', [CatelogriesController::class, 'destroy']);
+
+
 
