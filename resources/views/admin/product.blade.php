@@ -10,6 +10,13 @@
         </ul>
     </div>
     <h2 class="title">Danh sách sản phẩm</h2>
+    <div role="alert" class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Thêm thành công</span>
+    </div>
     <div class="data-table">
         <table id="myTable" class="display">
             <thead>
@@ -31,7 +38,7 @@
                         <image width="100px" src="{{ $product->ImageURL }}"></image>
                     </td>
                     <td>{{ $product->Name }}</td>
-                    <td>{{ $product->Price }}</td>  
+                    <td>{{ $product->Price }}</td>
                     <td>{{ $product->Description }}</td>
                     <td>
                         <form action="/admin/product/delete/{{ $product->Id }}" method="post">

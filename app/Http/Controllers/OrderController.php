@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Catelogries;
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\DetailOrder;
 
-class CatelogriesController extends Controller
+
+
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,15 +32,12 @@ class CatelogriesController extends Controller
     public function store(Request $request)
     {
         //
-        $data= $request->all();
-        Catelogries::create($data);
-        return redirect('/admin/category');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Catelogries $catelogries)
+    public function show(string $id)
     {
         //
     }
@@ -48,10 +48,6 @@ class CatelogriesController extends Controller
     public function edit(string $id)
     {
         //
-        $data= Catelogries::find($id);
-        return view('admin.update-categories', [
-            'data' => $data,
-        ]);
     }
 
     /**
@@ -60,10 +56,6 @@ class CatelogriesController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $temp = Catelogries::find($id);
-        $temp->CategoryName = $request->CategoryName;
-        $temp->save();
-        return redirect('/admin/category');
     }
 
     /**
@@ -72,14 +64,14 @@ class CatelogriesController extends Controller
     public function destroy(string $id)
     {
         //
-        $id_temp= Catelogries::find($id)->FKProduct;
+        $id_temp= Order::find($id)->FKDetail;
         if(count($id_temp)<=0){
-            Catelogries::destroy($id);
+            Order::destroy($id);
             session()->flash("OK",'Xóa thành công');
-            return redirect('/admin/category');
+            return redirect('/admin/order');
         }else{
             session()->flash("Fail",'Xóa không thành công'); 
-            return redirect('/admin/category');
+            return redirect('/admin/order');
         }
     }
 }

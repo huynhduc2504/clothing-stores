@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DetailOrder;
 
 class Order extends Model
 {
@@ -25,4 +26,9 @@ class Order extends Model
         'updated_at',
         'created_at'
     ];
+
+    public function FKDetail()
+    {
+        return $this->hasMany(DetailOrder::class,"IdOrder","Id");
+    }
 }

@@ -29,6 +29,14 @@ class ClothesController extends Controller
     public function create()
     {
         //
+        $data1= Size::all();
+        $data2= Color::all();
+        $data3= Catelogries::all();
+        return view('admin.add-product', [
+            'Size' => $data1,
+            'Color' => $data2,
+            'Cate' => $data3
+        ]);
     }
 
     /**
@@ -37,6 +45,18 @@ class ClothesController extends Controller
     public function store(Request $request)
     {
         //
+        $rule=[
+            'Name' => 'required|min:10',
+            'Price' => 'required|min_digits:5'
+        ];
+        $message=[
+            'required' => 'Thông tin này là bắt buộc',
+            'min' => 'Cần dài hơn :min kí tự',
+            'integer' => 'Phải là số nguyên',
+            'email' => 'Chưa đúng định dạng email',
+            'min_digits' => 'Cần ít nhất :min_digits kí tự'
+        ];
+        $request->validate($rule,$message);
         $data= $request->all();
         // $tenanh=$request->anhsp->getClientOriginalName();
         // $request->anhsp->storeAs('public',$tenanh);
@@ -77,6 +97,17 @@ class ClothesController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $rule=[
+            'Name' => 'required|min:10',
+            'Price' => 'required|min_digits:5'
+        ];
+        $message=[
+            'required' => 'Thông tin này là bắt buộc',
+            'min' => 'Cần dài hơn :min kí tự',
+            'integer' => 'Phải là số nguyên',
+            'email' => 'Chưa đúng định dạng email',
+            'min_digits' => 'Cần ít nhất :min_digits kí tự'
+        ];
         //
         $temp= Products::find($id);
         $temp->Name= $request->Name;
