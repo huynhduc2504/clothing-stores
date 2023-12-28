@@ -68,6 +68,8 @@
                         <input type="hidden" value="{{ $item->Name }}" name="name">
                         <input type="hidden" value="{{ $item->Price }}" name="price">
                         <input type="hidden" value="{{ $item->ImageURL }}"  name="image">
+                        <input type="hidden" value="Trắng"  name="color">
+                        <input type="hidden" value="M"  name="size">
                         <input type="hidden" value="1" name="quantity">
                         <button>Thêm vào giỏ hàng</button>
                       </form>

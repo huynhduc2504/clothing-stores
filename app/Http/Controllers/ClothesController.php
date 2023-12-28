@@ -51,7 +51,9 @@ class ClothesController extends Controller
     public function show(string $id)
     {
         $data = Products::find($id);
-        return view('home.detail',['data'=>$data]);
+        $dataColor = Color::all();
+        $dataSize = Size::all();
+        return view('home.detail',['data'=>$data,'dataColor'=>$dataColor,'dataSize'=>$dataSize]);
     }
 
     /**
@@ -98,5 +100,33 @@ class ClothesController extends Controller
         //
         Products::destroy($id);
         return redirect('/admin/product');
+    }
+
+    public function filter(Request $request){
+        $data = Products::all();
+        $dataCate = Catelogries::all();
+
+        //Lấy data từ client xuống
+        $searchQuery = $request->input('search');
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+
+        //Search theo tên
+        if ($searchQuery) {
+            $data = Products::where('Name', 'like', "%{$searchQuery}%")->get();
+        } else {
+            $data = Products::all();
+        }
+
+        //Search theo giá
+        if ($minPrice) {
+            $data = $data->where('Price', '>=', $minPrice);
+        }
+    
+        if ($maxPrice) {
+            $data = $data->where('Price', '<=', $maxPrice);
+        }
+
+        return view("home.filter",['data'=>$data,'dataCate'=>$dataCate]);
     }
 }

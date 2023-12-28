@@ -56,6 +56,10 @@ Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.su
 Route::get('/profile', [ProfileController::class, 'view'])->name('profile.view');
 Route::post('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
 
+//Filter
+Route::get('/filter', [ClothesController::class, 'filter'])->name('filter.view');
+
+
 //Admin
 Route::get('/admin', [AdminController::class, 'index']);
 

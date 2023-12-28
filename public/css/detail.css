@@ -30,20 +30,19 @@ h6 {
 }
 .product-breadcrumb{
     height: 81px;
-    background-color: #212529;
     padding: 0px 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .product-breadcrumb > h2{
-    color: #fff;
+    color: #000000;
     font-size: 16px;
     font-weight: 700;
     line-height: 16px;
 }
 .product-breadcrumb > a{
-    color: #fff;
+    color: #000000;
     font-size: 14px;
     font-weight: 700;
     line-height: 21px;

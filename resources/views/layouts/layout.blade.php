@@ -44,7 +44,7 @@
                     </div>
                     <div class="header-list">
                         <a href="/">Trang chủ</a>
-                        <a href="">Sản phẩm</a>
+                        <a href="/filter">Sản phẩm</a>
                         <a href="">Cửa hàng</a>
                     </div>
                     <div class="search-btn-group">
@@ -55,7 +55,7 @@
                         <div class="user-group">
                             @if(session()->has('user'))
                             <div class="login-box">
-                                <p>{{session()->get('user')['name']}}</p>
+                                <a href="/profile"><p>{{session()->get('user')['name']}}</p></a>
                                 <a href="/logout">Đăng xuất</a>
                             </div>
                             @else

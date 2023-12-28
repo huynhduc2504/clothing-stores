@@ -9,11 +9,11 @@ class Catelogries extends Model
 {
     use HasFactory;
     protected $table = 'categories';
-    protected $primaryKey = 'CategoryId';
+    protected $primaryKey = 'CategoryID';
     public $incrementing = true;
 
     protected $fillable = [
-        'CategoryID ',
+        'CategoryID',
         'CategoryName',
         'updated_at',
         'created_at',

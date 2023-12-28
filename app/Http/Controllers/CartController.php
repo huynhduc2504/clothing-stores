@@ -28,6 +28,8 @@ class CartController extends Controller
             'quantity' => $request->quantity,
             'attributes' => array(
             'image' => $request->image,
+            'size' => $request->size,
+            'color' => $request->color,
             )
         ]);
         session()->flash('success', 'Thêm sản phẩm vào giỏ hàng thành công !');

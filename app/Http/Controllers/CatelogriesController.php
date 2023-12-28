@@ -69,10 +69,16 @@ class CatelogriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
-        Catelogries::destroy($id);
-        return redirect('/admin/category');
+        $data = Catelogries::find($id);
+        
+        try {
+            $data->delete();
+            return redirect('/admin/category');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
     }
 }

@@ -30,6 +30,8 @@
                                 <th>Ảnh</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Số lượng</th>
+                                <th>Size</th>
+                                <th>Màu sắc</th>
                                 <th>Giá</th>
                                 <th>Tổng tiền</th>
                                 <th>Xóa</th>
@@ -54,6 +56,8 @@
                                             class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500">Update</button>
                                     </form>
                                 </td>
+                                <td>{{ $item->attributes->size }}</td>
+                                <td>{{ $item->attributes->color }}</td>
                                 <td>${{ $item->price }}</td>
                                 <td>${{ $item->price * $item->quantity}}</td>
                                 <td>
