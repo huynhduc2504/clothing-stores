@@ -17,7 +17,8 @@
             <div class="label w-full">
                 <span class="label-text">Tên danh mục</span>
             </div>
-            <input name="CategoryName" type="text" placeholder="Tên danh mụcgit " class="input input-bordered w-full" required />
+            <input name="CategoryName" type="text" placeholder="Tên danh mục" class="input input-bordered w-full"
+                required />
         </label>
         <button type="submit" class="btn btn-neutral mt-7">Thêm</button>
     </form>

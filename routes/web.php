@@ -12,6 +12,9 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\CatelogriesController;
+use App\Http\Controllers\OrderController;
+
+
 
 
 /*
@@ -29,7 +32,7 @@ Route::get('/', [ClothesController::class,'index']);
 Route::get('/detail/{id}',[ClothesController::class,'show']);
 Route::get('/login',[LoginController::class,'index']);
 Route::get('/register',[LoginController::class,'register_view']);
-Route::post('/login',[LoginController::class,'login']);
+Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::post('/register',[LoginController::class,'register']);
 Route::get('/logout',[LoginController::class,'logout']);
 
@@ -65,9 +68,7 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 //Product
 Route::get('/admin/product', [AdminController::class, 'products_list']);
-Route::get('/admin/product/add', function () {
-    return view('admin.add-product');
-});
+Route::get('/admin/product/add',[ClothesController::class,'create']);
 Route::post('/admin/product/add', [ClothesController::class, 'store']);
 Route::get('/admin/product/edit/{id}', [ClothesController::class, 'edit']);
 Route::put('/admin/product/update/{id}', [ClothesController::class, 'update']);
@@ -109,5 +110,11 @@ Route::get('/admin/category/edit/{id}', [CatelogriesController::class, 'edit']);
 Route::put('/admin/category/update/{id}', [CatelogriesController::class, 'update']);
 Route::delete('/admin/category/delete/{id}', [CatelogriesController::class, 'destroy']);
 
+//Order
+Route::get('/admin/order', [AdminController::class, 'orders_list']);
+Route::delete('/admin/order/delete/{id}', [OrderController::class, 'destroy']);
+
+//Detail
+Route::get('/admin/detail/{id}', [AdminController::class, 'detail_orders_list']);
 
 

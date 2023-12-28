@@ -104,8 +104,7 @@
                                 <details open>
                                     <summary>Tra cứu</summary>
                                     <ul>
-                                        <li><a>Đơn hàng</a></li>
-                                        <li><a>Khách hàng</a></li>
+                                        <li><a href="/admin/order">Đơn hàng</a></li>
                                     </ul>
                                 </details>
                             </li>

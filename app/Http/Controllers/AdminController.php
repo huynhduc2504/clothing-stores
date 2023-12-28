@@ -8,6 +8,9 @@ use App\Models\Customers;
 use App\Models\Size;
 use App\Models\Color;
 use App\Models\Catelogries;
+use App\Models\Order;
+use App\Models\DetailOrder;
+
 
 
 class AdminController extends Controller
@@ -22,7 +25,6 @@ class AdminController extends Controller
     }
     public function products_list()
     {
-        //Lay tat ca du lieu trong bang Product
         $data = Products::all();
 
         // return response()->json($data);
@@ -30,7 +32,6 @@ class AdminController extends Controller
     }
     public function customers_list()
     {
-        //Lay tat ca du lieu trong bang Product
         $data = Customers::all();
 
         // return response()->json($data);
@@ -38,7 +39,6 @@ class AdminController extends Controller
     }
     public function sizes_list()
     {
-        //Lay tat ca du lieu trong bang Product
         $data = Size::all();
 
         // return response()->json($data);
@@ -46,7 +46,6 @@ class AdminController extends Controller
     }
     public function colors_list()
     {
-        //Lay tat ca du lieu trong bang Product
         $data = Color::all();
 
         // return response()->json($data);
@@ -54,11 +53,20 @@ class AdminController extends Controller
     }
     public function catelogries_list()
     {
-        //Lay tat ca du lieu trong bang Product
         $data = Catelogries::all();
 
         // return response()->json($data);
         return view('admin.category',['data'=>$data]);
+    }
+    public function orders_list()
+    {
+        $data = Order::all();
+        return view('admin.order',['data' => $data]);
+    }
+    public function detail_orders_list($id)
+    {
+        $data = DetailOrder::all();
+        return view('admin.detail',['data' => $data,'id' => $id]);
     }
     /**
      * Show the form for creating a new resource.

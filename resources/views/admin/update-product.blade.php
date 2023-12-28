@@ -64,7 +64,7 @@
             </div>
             <select name="IdCategories" class="select select-bordered">
                 @foreach($Cate as $items)
-                <option value="{{$items->CategoryID}}" {{ $data->IdCategories == $items->Id ? 'selected' : '' }}>
+                <option value="{{$items->CategoryID}}" {{ $data->IdCategories == $items->CategoryID ? 'selected' : '' }}>
                     {{$items->CategoryName}}
                 </option>
                 @endforeach

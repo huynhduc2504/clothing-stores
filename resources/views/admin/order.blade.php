@@ -6,7 +6,7 @@
     <div class="text-sm breadcrumbs text-xl">
         <ul>
             <li><a>Home</a></li>
-            <li>Categories</li>
+            <li>Orders</li>
         </ul>
     </div>
     @if(session()->has("OK"))
@@ -26,31 +26,43 @@
         {{session()->get('Fail')}}
     </p>
     @endif
-    <h2 class="title">Danh sách danh mục</h2>
+    <h2 class="title">Danh sách đơn hàng</h2>
     <div class="data-table">
         <table id="myTable" class="display">
             <thead>
                 <tr>
-                    <th>Mã danh mục</th>
-                    <th>Tên danh mục</th>
+                    <th>Mã đon hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng tiền</th>
+                    <th>Mã khách hàng</th>
+                    <th>Tên khách hàng</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Chú thích</th>
+                    <th>Số điện thoại</th>
                     <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($data as $cate)
+                @foreach($data as $order)
                 <!-- Thêm các thẻ HTML khác hoặc thao tác với dữ liệu khác -->
                 <tr>
-                    <td>{{ $cate->CategoryID }}</td>
-                    <td>{{ $cate->CategoryName }}</td>
+                    <td>{{ $order->Id }}</td>
+                    <td>{{ $order->OrderDate }}</td>
+                    <td>{{ $order->TotalAmount }}</td>
+                    <td>{{ $order->IdCustomer }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->address }}</td>
+                    <td>{{ $order->note }}</td>
+                    <td>{{ $order->sdt }}</td>
                     <td>
-                        <form action="/admin/category/delete/{{ $cate->CategoryID }}" method="post">
+                        <form action="/admin/detail/{{ $order->Id }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-info">Xem</button>
+                        </form>
+                        <form action="/admin/order/delete/{{ $order->Id }}" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="delete">
                             <button type="submit" class="btn btn-error">Xóa</button>
-                        </form>
-                        <form action="/admin/category/edit/{{ $cate->CategoryID }}" method="get">
-                            @csrf
-                            <button type="submit" class="btn btn-warning">Sửa</button>
                         </form>
                     </td>
                 </tr>

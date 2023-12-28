@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Catelogries extends Model
 {
@@ -18,4 +19,9 @@ class Catelogries extends Model
         'updated_at',
         'created_at',
     ];
+
+    public function FKProduct()
+    {
+        return $this->hasMany(Products::class,"IdCategories","CategoryID");
+    }
 }
