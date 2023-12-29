@@ -19,6 +19,7 @@ class Customers extends Model
         'Email',
         'Address',
         'Phone',
+        'Permission',
         'updated_at',
         'created_at'
     ];

@@ -28,8 +28,15 @@ class LoginController extends Controller
         if(Hash::check($r->Password,$u[0]->Password))
         {
             session(['user'=>'1','user'=>['id'=>$u[0]->Id,'email'=>$u[0]->Email,'name'=>$u[0]->Username]]);
-            session()->flash('success','Đăng nhập thành công');
-            return redirect('/');
+            if($u[0]->Permission == 1){
+                session()->flash('success','Đăng nhập thành công');
+                return redirect('/');
+            }
+            else if($u[0]->Permission == 0)
+            {
+                session()->flash('success','Đăng nhập thành công');
+                return redirect('/admin');
+            }
         }else
         {
             session()->flash('error','Thông tin đăng nhập không hợp lệ');

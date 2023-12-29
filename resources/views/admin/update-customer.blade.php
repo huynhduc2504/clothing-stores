@@ -41,6 +41,19 @@
             <input name="Phone" type="text" placeholder="Số điện thoại" value="{{$data->Phone}}"
                 class="input input-bordered w-full" required />
         </label>
+        <label class="form-control w-full">
+            <div class="label w-full">
+                <span class="label-text">Quyền hạn</span>
+            </div>
+            <select name="Permission" class="select select-bordered" required>
+                <option value="0" {{ $data->Permission == 0 ? 'selected' : '' }}>
+                    Admin
+                </option>
+                <option value="1" {{ $data->Permission == 1 ? 'selected' : '' }}>
+                    User
+                </option>
+            </select>
+        </label>
         <input type="hidden" value="put" name="_method">
         <button type="submit" class="btn btn-neutral mt-7">Cập nhật</button>
     </form>

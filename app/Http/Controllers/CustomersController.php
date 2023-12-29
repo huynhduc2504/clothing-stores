@@ -62,6 +62,11 @@ class CustomersController extends Controller
         $temp->Email = $request->Email;
         $temp->Address = $request->Address;
         $temp->Phone = $request->Phone;
+        if($request->Permission == 0){
+            $temp->Permission = 0;
+        }else{
+            $temp->Permission = 1;
+        }
         $temp->save();
         return redirect('/admin/customer');
     }
