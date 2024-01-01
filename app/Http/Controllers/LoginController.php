@@ -64,6 +64,7 @@ class LoginController extends Controller
         );
         $data = $r->all();
         $data['Password'] = Hash::make($r->Password);
+        $data['Permission'] = 1;
         // $data->save();
         Customers::Create($data);
         session()->flash('regis_seccess','Tạo tài khoản thành công.Có thể đăng nhập');

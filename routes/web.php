@@ -13,6 +13,8 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\CatelogriesController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CommentController;
+use App\Http\Middleware\CheckLogin;
 
 
 
@@ -36,7 +38,10 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::post('/register',[LoginController::class,'register']);
 Route::get('/logout',[LoginController::class,'logout']);
 
-
+Route::middleware([CheckLogin::class])->group(function () {
+    
+    
+Route::post('/posts/{postId}/comments', [CommentController::class, 'store']);
 //Cart
 
 Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -46,22 +51,6 @@ Route::post('/remove', [CartController::class, 'removeCart'])->name('cart.remove
 Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('/discount/apply', [CartController::class, 'applyCoupon'])->name('cart.apply.coupon');
 Route::post('/discount/removce', [CartController::class, 'removeCoupon'])->name('cart.remove.coupon');
-
-
-
-//Checkout
-Route::get('/checkout', [checkoutController::class, 'checkout_view'])->name('checkout.view');
-Route::get('/order/create',[checkoutController::class,'order']);
-Route::post('/momo', [PaymentMomo::class, 'paymentMomo'])->name('cart.momo');
-Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.success');
-
-//Profile
-Route::get('/profile', [ProfileController::class, 'view'])->name('profile.view');
-Route::post('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
-
-//Filter
-Route::get('/filter', [ClothesController::class, 'filter'])->name('filter.view');
-
 
 //Admin
 Route::get('/admin', [AdminController::class, 'index']);
@@ -116,5 +105,23 @@ Route::delete('/admin/order/delete/{id}', [OrderController::class, 'destroy']);
 
 //Detail
 Route::get('/admin/detail/{id}', [AdminController::class, 'detail_orders_list']);
+});
+
+
+
+
+//Checkout
+Route::get('/checkout', [checkoutController::class, 'checkout_view'])->name('checkout.view');
+Route::get('/order/create',[checkoutController::class,'order']);
+Route::post('/momo', [PaymentMomo::class, 'paymentMomo'])->name('cart.momo');
+Route::get('/success', [PaymentMomo::class, 'success_order'])->name('checkout.success');
+
+//Profile
+Route::get('/profile', [ProfileController::class, 'view'])->name('profile.view');
+Route::post('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
+
+//Filter
+Route::get('/filter', [ClothesController::class, 'filter'])->name('filter.view');
+
 
 

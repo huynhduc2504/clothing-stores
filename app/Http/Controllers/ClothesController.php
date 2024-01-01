@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Size;
 use App\Models\Color;
+use App\Models\Comment;
 use App\Models\Catelogries;
+use App\Models\Customers;
 
 
 class ClothesController extends Controller
@@ -73,7 +75,15 @@ class ClothesController extends Controller
         $data = Products::find($id);
         $dataColor = Color::all();
         $dataSize = Size::all();
-        return view('home.detail',['data'=>$data,'dataColor'=>$dataColor,'dataSize'=>$dataSize]);
+        $comments = Comment::where('clothes_id', $id)->get();
+        foreach ($comments as $key => $comment) {
+            // Lấy thông tin người dùng dựa trên user_id của comment
+            $user = Customers::find($comment->user_id);
+    
+            // Thêm thông tin người dùng vào mỗi comment
+            $comments[$key]->user = $user;
+        }
+        return view('home.detail',['data'=>$data,'dataColor'=>$dataColor,'dataSize'=>$dataSize,'comments'=>$comments]);
     }
 
     /**

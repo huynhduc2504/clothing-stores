@@ -40,7 +40,7 @@ class PaymentMomo extends Controller
         $orderInfo = "Thanh toán qua MoMo";
         $amount = $request->input("TotalAmount");
         $orderId = time() . "";
-        $redirectUrl = "http://127.0.0.1:8000/success";
+        $redirectUrl = "http://127.0.0.1:8000";
         $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
         $extraData = "";
 

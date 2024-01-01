@@ -15,10 +15,11 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()&&Auth::user()->email == "admin@localhost.com") {
-            return $next($request);
-        } else {
-            return redirect("/login");
+        if(!session()->has('user'))
+        {
+            session()->flash('error','Đăng nhập trước khi thao tác');
+            return redirect()->route('login');
         }
+        return $next($request);
     }
 }
