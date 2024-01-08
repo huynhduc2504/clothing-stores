@@ -8,10 +8,9 @@
     </div>
     <div class="product-info">
         <div class="product-left">
-            <img src="{{$data->ImageURL}}" alt="Hinh" />
-            <img src="{{$data->ImageURL}}" alt="Hinh" />
-            <img src="{{$data->ImageURL}}" alt="Hinh" />
-            <img src="{{$data->ImageURL}}" alt="Hinh" />
+            @foreach($images as $image)
+            <img src="{{$image->urlImg}}" alt="Hinh" />
+            @endforeach
         </div>
         <div class="product-right">
             <h2>{{$data->Name}}</h2>

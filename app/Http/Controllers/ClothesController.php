@@ -9,6 +9,7 @@ use App\Models\Color;
 use App\Models\Comment;
 use App\Models\Catelogries;
 use App\Models\Customers;
+use App\Models\Images;
 
 
 class ClothesController extends Controller
@@ -76,6 +77,7 @@ class ClothesController extends Controller
         $dataColor = Color::all();
         $dataSize = Size::all();
         $comments = Comment::where('clothes_id', $id)->get();
+        $images = Images::where('idClothes', $id)->get();
         foreach ($comments as $key => $comment) {
             // Lấy thông tin người dùng dựa trên user_id của comment
             $user = Customers::find($comment->user_id);
@@ -83,7 +85,7 @@ class ClothesController extends Controller
             // Thêm thông tin người dùng vào mỗi comment
             $comments[$key]->user = $user;
         }
-        return view('home.detail',['data'=>$data,'dataColor'=>$dataColor,'dataSize'=>$dataSize,'comments'=>$comments]);
+        return view('home.detail',['data'=>$data,'dataColor'=>$dataColor,'dataSize'=>$dataSize,'comments'=>$comments,'images'=>$images]);
     }
 
     /**
